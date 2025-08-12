@@ -16,22 +16,8 @@ const Home = () => {
     <>
       <div className="tw:flex tw:h-screen tw:items-center tw:justify-center tw:dark:bg-gray-950">
         <div className="tw:flex tw:w-7xl tw:flex-col tw:items-center tw:justify-center tw:dark:text-white">
-          
-          <Button
-            size={'lg'}
-            variant={'secondary'}
-            className="tw:mt-4 tw:w-full tw:max-w-xs tw:cursor-pointer"
-            onClick={() => {
-              const newEvent: EventItem = {
-                id: crypto.randomUUID(),
-                title: 'New Event',
-                targetISO: new Date(Date.now() + 86400000).toISOString() // 1 day from now
-              };
-              setEvents(prev => [...prev, newEvent]);
-            }}
-          >
-            Add Event
-          </Button><EventForm onCreate={addEvent} />
+
+          <EventForm onCreate={addEvent} />
 
           <CountdownList
             events={events}
