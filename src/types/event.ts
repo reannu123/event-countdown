@@ -1,5 +1,6 @@
-export type EventData = {
+export type EventItem = {
+  id: string;
   title: string;
-  date: string;
-  description?: string;
+  // ISO 8601 string (UTC). We'll compute against Date.now() (UTC ms).
+  targetISO: string;
 };
