@@ -50,7 +50,7 @@ not include adding accounts, syncing data, notifications, or a backend.
 
 ## Blocked
 
-- No confirmed blocker. The repository is four commits ahead of
+- No confirmed blocker. The repository is six commits ahead of
   `origin/master`, and the README is still the default Vite template.
 
 ## Done
