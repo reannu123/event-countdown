@@ -1,20 +1,21 @@
 # Event Countdown TODO
 
-Last updated: 2026-06-18
+Last updated: 2026-06-19
 
 ## Project
 
 - Name: Event Countdown
 - Path: `/home/reannu123/Projects/simple/event-countdown`
-- Status: active
+- Status: queued
 - Stage: revival
 - Branch: `master`
 - Portfolio role: Small polished React delivery example
 
 ## Current Milestone
 
-Revive the app as a compact, presentable React project with clear setup
-instructions, verified build commands, and a simple user-facing workflow.
+Queued after Better Ecommerce Store. Revive the app as a compact, presentable
+React project with clear setup instructions, verified build commands, and a
+simple user-facing workflow.
 
 This milestone is about packaging the existing countdown app cleanly. It does
 not include adding accounts, syncing data, notifications, or a backend.
@@ -32,12 +33,14 @@ not include adding accounts, syncing data, notifications, or a backend.
 
 ## Now
 
-- [ ] Run `npm run lint` and `npm run build` to establish the current baseline.
-- [ ] Replace the starter README with project-specific documentation.
-- [ ] Smoke-test the create, persist, and delete countdown workflow.
+- [ ] Wait until PayMongo API Dashboard and Better Ecommerce Store revival
+      milestones are complete.
 
 ## Next
 
+- [ ] Run `npm run lint` and `npm run build` to establish the current baseline.
+- [ ] Replace the starter README with project-specific documentation.
+- [ ] Smoke-test the create, persist, and delete countdown workflow.
 - [ ] Fix only issues that block the revival definition of done.
 - [ ] Add or update a screenshot if the UI is portfolio-presentable.
 - [ ] Push or merge the revived state after verification.
@@ -50,7 +53,7 @@ not include adding accounts, syncing data, notifications, or a backend.
 
 ## Blocked
 
-- No confirmed blocker. The repository is six commits ahead of
+- No confirmed blocker. The repository has local commits ahead of
   `origin/master`, and the README is still the default Vite template.
 
 ## Done
@@ -58,3 +61,5 @@ not include adding accounts, syncing data, notifications, or a backend.
 - [x] Inspected repository on 2026-06-18: React/Vite app files exist, a
       localStorage countdown workflow is implemented, `.gitignore` exists, and
       no `.env.example` is needed for the current frontend-only app.
+- [x] Queued behind PayMongo API Dashboard and Better Ecommerce Store on
+      2026-06-19.
