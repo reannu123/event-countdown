@@ -1,47 +1,46 @@
 # Event Countdown TODO
 
-Last updated: 2026-06-19
+Last updated: 2026-06-20
 
 ## Project
 
 - Name: Event Countdown
-- Path: `/home/reannu123/Projects/simple/event-countdown`
-- Status: queued
+- Path: `/home/reannu123/Projects/portfolio/event-countdown`
+- Status: active
 - Stage: revival
-- Branch: `master`
+- Branch: `codex/revive-event-countdown`
 - Portfolio role: Small polished React delivery example
 
 ## Current Milestone
 
-Queued after Better Ecommerce Store. Revive the app as a compact, presentable
-React project with clear setup instructions, verified build commands, and a
-simple user-facing workflow.
+Revive the app as a compact, presentable React project with clear setup
+instructions, verified build commands, Docker workflows, and a simple
+user-facing workflow.
 
 This milestone is about packaging the existing countdown app cleanly. It does
 not include adding accounts, syncing data, notifications, or a backend.
 
 ## Definition Of Done
 
-- [ ] Another developer can install dependencies and run the Vite app.
-- [ ] `npm run lint` and `npm run build` pass.
-- [ ] The main workflow has been smoke-tested: create an event, see the
+- [x] Another developer can install dependencies and run the Vite app.
+- [x] `npm run lint` and `npm run build` pass.
+- [x] The main workflow has been smoke-tested: create an event, see the
       countdown, refresh the page, and delete the event.
-- [ ] The starter Vite README is replaced with project-specific setup,
+- [x] The starter Vite README is replaced with project-specific setup,
       purpose, stack, limitations, and verification instructions.
+- [x] Development and production-like Docker Compose workflows build and serve
+      the app locally.
 - [ ] The current local commits are pushed or merged so the repository state is
       not only local.
 
 ## Now
 
-- [ ] Wait until PayMongo API Dashboard and Better Ecommerce Store revival
-      milestones are complete.
+- [x] Run `npm run lint` and `npm run build`.
+- [x] Validate and smoke-test both Docker Compose workflows.
+- [x] Smoke-test create, persist, and delete in a browser.
 
 ## Next
 
-- [ ] Run `npm run lint` and `npm run build` to establish the current baseline.
-- [ ] Replace the starter README with project-specific documentation.
-- [ ] Smoke-test the create, persist, and delete countdown workflow.
-- [ ] Fix only issues that block the revival definition of done.
 - [ ] Add or update a screenshot if the UI is portfolio-presentable.
 - [ ] Push or merge the revived state after verification.
 
@@ -53,8 +52,7 @@ not include adding accounts, syncing data, notifications, or a backend.
 
 ## Blocked
 
-- No confirmed blocker. The repository has local commits ahead of
-  `origin/master`, and the README is still the default Vite template.
+- No confirmed blocker.
 
 ## Done
 
@@ -63,3 +61,15 @@ not include adding accounts, syncing data, notifications, or a backend.
       no `.env.example` is needed for the current frontend-only app.
 - [x] Queued behind PayMongo API Dashboard and Better Ecommerce Store on
       2026-06-19.
+- [x] Inspected and activated on 2026-06-20 after the Better Ecommerce Store
+      revival was merged.
+- [x] Pushed the seven existing local commits to the private GitHub repository
+      before making revival changes on 2026-06-20.
+- [x] Replaced the starter README and added Docker delivery files on
+      2026-06-20; verification is still required.
+- [x] Verified `npm run lint`, `npm run build`, and both Compose
+      configurations on 2026-06-20.
+- [x] Smoke-tested the development container in a browser on 2026-06-20:
+      create, persist across refresh, and delete work as documented.
+- [x] Verified the production-like container builds and serves the app at
+      `http://localhost:4173` on 2026-06-20.

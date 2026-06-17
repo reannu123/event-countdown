@@ -17,21 +17,28 @@ type Props = {
   onCreate: (item: EventItem) => void;
 };
 
+const createEventId = () =>
+  globalThis.crypto?.randomUUID?.() ?? `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
 export const EventForm: React.FC<Props> = ({ onCreate }) => {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [dtLocal, setDtLocal] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!title.trim() || !dtLocal) return;
+    const formData = new FormData(e.currentTarget);
+    const eventTitle = String(formData.get('title') ?? '').trim();
+    const eventDateTime = String(formData.get('targetDateTime') ?? '');
+
+    if (!eventTitle || !eventDateTime) return;
 
     // datetime-local -> treat as local time, convert to ISO (UTC)
-    const targetISO = new Date(dtLocal).toISOString();
+    const targetISO = new Date(eventDateTime).toISOString();
 
     const item: EventItem = {
-      id: crypto.randomUUID(),
-      title: title.trim(),
+      id: createEventId(),
+      title: eventTitle,
       targetISO
     };
     onCreate(item);
@@ -57,6 +64,7 @@ export const EventForm: React.FC<Props> = ({ onCreate }) => {
           </DialogHeader>
           <Input
             type="text"
+            name="title"
             placeholder="Event title (e.g., Launch Day)"
             value={title}
             onChange={e => setTitle(e.target.value)}
@@ -64,6 +72,7 @@ export const EventForm: React.FC<Props> = ({ onCreate }) => {
           />
           <Input
             type="datetime-local"
+            name="targetDateTime"
             placeholder="Select date and time"
             value={dtLocal}
             onChange={e => setDtLocal(e.target.value)}
