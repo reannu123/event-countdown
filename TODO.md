@@ -6,14 +6,14 @@ Last updated: 2026-06-20
 
 - Name: Event Countdown
 - Path: `/home/reannu123/Projects/portfolio/event-countdown`
-- Status: active
+- Status: complete
 - Stage: revival
-- Branch: `codex/revive-event-countdown`
+- Branch: `master`
 - Portfolio role: Small polished React delivery example
 
 ## Current Milestone
 
-Revive the app as a compact, presentable React project with clear setup
+Revived the app as a compact, presentable React project with clear setup
 instructions, verified build commands, Docker workflows, and a simple
 user-facing workflow.
 
@@ -30,19 +30,16 @@ not include adding accounts, syncing data, notifications, or a backend.
       purpose, stack, limitations, and verification instructions.
 - [x] Development and production-like Docker Compose workflows build and serve
       the app locally.
-- [ ] The current local commits are pushed or merged so the repository state is
+- [x] The current local commits are pushed or merged so the repository state is
       not only local.
 
 ## Now
 
-- [x] Run `npm run lint` and `npm run build`.
-- [x] Validate and smoke-test both Docker Compose workflows.
-- [x] Smoke-test create, persist, and delete in a browser.
+- No active task; the revival milestone is complete.
 
 ## Next
 
-- [ ] Add or update a screenshot if the UI is portfolio-presentable.
-- [ ] Push or merge the revived state after verification.
+- Reconsider a portfolio screenshot during the flagship-proof phase.
 
 ## Later
 
@@ -73,3 +70,4 @@ not include adding accounts, syncing data, notifications, or a backend.
       create, persist across refresh, and delete work as documented.
 - [x] Verified the production-like container builds and serves the app at
       `http://localhost:4173` on 2026-06-20.
+- [x] Merged GitHub PR #1 to `master` on 2026-06-20.
