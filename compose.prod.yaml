@@ -1,0 +1,7 @@
+services:
+  app:
+    build:
+      context: .
+      target: production
+    ports:
+      - "${APP_PORT:-4173}:8080"

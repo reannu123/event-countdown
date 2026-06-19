@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      context: .
+      target: development
+    ports:
+      - "${APP_PORT:-5173}:5173"
+    volumes:
+      - .:/app
+      - event-countdown-node-modules:/app/node_modules
+
+volumes:
+  event-countdown-node-modules:
