@@ -1,6 +1,5 @@
 import CountdownList from '@/components/CountdownList';
 import { EventForm } from '@/components/EventForm';
-import { Button } from '@/components/ui/button';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import type { EventItem } from '@/types/event';
 
