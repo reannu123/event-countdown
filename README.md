@@ -1,102 +1,105 @@
-# Event Countdown
+# Countdowns ⏳
 
-A compact React application for creating personal event countdowns. Events are
-stored in the browser, display a live remaining-time countdown, and can be
-deleted when they are no longer needed.
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![React](https://img.shields.io/badge/React-19-61dafb?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
+![PWA](https://img.shields.io/badge/PWA-offline--ready-5a0fc8)
 
-This project is a self-contained frontend example: it has no accounts,
-backend, or external service configuration.
+Create beautiful countdowns to the moments that matter — and **share a live link
+with anyone, no account or backend required.** An installable, offline-capable
+PWA built with React 19, Vite, and Tailwind 4.
 
-## Stack
+## Highlights
 
-- React 19 and TypeScript
-- Vite
-- Tailwind CSS and Radix UI primitives
-- Browser `localStorage` for event persistence
-- Docker Compose for development and production-like local checks
+- **Shareable countdowns, zero backend.** Every countdown encodes into its own
+  URL, so a link like `/c/<code>` renders a full-screen live countdown for
+  anyone who opens it — no database, no sign-up, nothing to host beyond static
+  files.
+- **Six themes**, applied live to cards and the shared view.
+- **Local dashboard** — create, edit, delete, auto-sorted soonest-first, with a
+  celebration state when a countdown completes.
+- **Installable PWA** — works offline via a service worker; add it to your home
+  screen.
+- **Tested & typed** — unit-tested share/codec + countdown logic, strict
+  TypeScript, lint and build gates.
 
-## Prerequisites
+## Screenshots
 
-- Node.js 20 or another current LTS release
-- npm
-- Docker with Docker Compose (optional, for container workflows)
+| Dashboard | Shared link (public) |
+| --- | --- |
+| ![Dashboard](docs/screenshots/02-dashboard.png) | ![Shared](docs/screenshots/03-shared.png) |
 
-## Run With npm
+## How sharing works
 
-Install dependencies:
+There's no server. When you click **share** on a card, the event
+(`{ title, targetISO, theme, note }`) is serialized to JSON and packed into a
+URL-safe, UTF-8-safe base64 string:
 
-```bash
-npm ci
+```
+https://your-host/c/eyJ0aXRsZSI6Ik5ldyBZZWFyIDIwMzEi...
 ```
 
-Start the development server:
+Opening that link decodes the payload and renders a live countdown. The target
+time is stored in UTC, so the countdown is correct in every timezone. Because
+the whole app is static, you can host it anywhere (or run it offline).
+
+## Run it
+
+### npm
 
 ```bash
-npm run dev
+npm install
+npm run dev          # http://localhost:5173
 ```
 
-Open <http://localhost:5173>.
-
-## Docker
-
-Start the development container with a source bind mount and named dependency
-volume:
+### Docker
 
 ```bash
-docker compose up --build
+# Development (hot reload, source bind mount)
+docker compose up --build                       # http://localhost:5173
+
+# Production-like (multi-stage build, nginx, SPA routing)
+docker compose -f compose.prod.yaml up --build  # http://localhost:4173
 ```
 
-Open <http://localhost:5173>. Stop it with:
+Set `APP_PORT` in a local `.env` only if a host port is taken. No secrets needed.
+
+## Develop & verify
 
 ```bash
-docker compose down
+npm run lint     # eslint
+npm test         # vitest — share codec, countdown math, sorting
+npm run build    # tsc -b + vite build
 ```
 
-For a production-like image check without source bind mounts:
+## Project structure
 
-```bash
-docker compose -f compose.prod.yaml up --build
+```
+src/
+  lib/share.ts      URL encode/decode for shareable countdowns + sorting
+  lib/time.ts       pure countdown math + humanized labels
+  lib/themes.ts     theme definitions
+  components/        CountdownCard, CountdownList, BigCountdown, EventForm
+  pages/Home.tsx     local dashboard
+  pages/Shared.tsx   public /c/:code countdown view
+public/
+  manifest.webmanifest, sw.js, icon.svg   PWA assets
+nginx.conf           SPA fallback for the production image
 ```
 
-Open <http://localhost:4173>. Stop it with:
+See [`docs/CASE_STUDY.md`](docs/CASE_STUDY.md) for the design story.
 
-```bash
-docker compose -f compose.prod.yaml down
-```
+## Limitations & roadmap
 
-Set `APP_PORT` in a local `.env` file only when either host port is already in
-use. `.env` is ignored and no secrets are required.
+- Your dashboard list lives in this browser's `localStorage` (it doesn't sync
+  across devices) — but **shared links are fully portable** since the event
+  lives in the URL.
+- No accounts or notifications (by design — it stays backend-free).
+- Possible next steps: calendar (`.ics`) export, optional accounts for a synced
+  dashboard, richer share-preview images.
 
-## Checks
+## License
 
-```bash
-npm run lint
-npm run build
-docker compose config --quiet
-docker compose -f compose.prod.yaml config --quiet
-```
-
-## Verification
-
-1. Open the app and select **Add Countdown**.
-2. Create an event with a future date and time.
-3. Confirm its title, target time, and live countdown appear.
-4. Refresh the browser and confirm the event persists.
-5. Delete the event and confirm it disappears.
-
-## Current Limitations
-
-- Events are saved only in the current browser's `localStorage`; they do not
-  sync across browsers or devices.
-- There are no accounts, sharing, notifications, or server-side backups.
-- The Docker workflows are local development and production-like checks, not a
-  deployed hosting configuration.
-
-## Useful Files
-
-- `src/components/EventForm.tsx` - create-countdown dialog
-- `src/components/CountdownList.tsx` - saved event list
-- `src/components/CountdownCard.tsx` - live countdown display and deletion
-- `src/hooks/useLocalStorage.ts` - browser persistence
-- `Dockerfile`, `docker-compose.yml`, and `compose.prod.yaml` - local Docker
-  workflows
+[MIT](LICENSE)
