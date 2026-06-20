@@ -13,12 +13,14 @@ Last updated: 2026-06-20
 
 ## Current Milestone
 
-Revived the app as a compact, presentable React project with clear setup
-instructions, verified build commands, Docker workflows, and a simple
-user-facing workflow.
+**Flagship upgrade complete (2026-06-20).** Elevated from a barebones
+localStorage app into a themed, installable PWA with **backend-free shareable
+countdown links** (`/c/:code`), an edit/sort dashboard, unit tests, and a case
+study. Verified via the production Docker image (incl. SPA deep-link fallback)
+with browser screenshots.
 
-This milestone is about packaging the existing countdown app cleanly. It does
-not include adding accounts, syncing data, notifications, or a backend.
+(Prior milestone: revived the app as a clean, presentable, documented, Dockerized
+React project.)
 
 ## Definition Of Done
 
@@ -35,17 +37,34 @@ not include adding accounts, syncing data, notifications, or a backend.
 
 ## Now
 
-- No active task; the revival milestone is complete.
+- No active task; the flagship upgrade is complete.
 
 ## Next
 
-- Reconsider a portfolio screenshot during the flagship-proof phase.
+- [ ] **Activate CI** — `.github/workflows/ci.yml` exists locally but the push
+      was rejected (token lacks `workflow` scope). Run:
+      `gh auth refresh -s workflow && git add .github && git commit -m "Add CI" && git push`.
+- [ ] Live deploy (any static host / Pages / Netlify) for a clickable demo URL.
 
 ## Later
 
-- [ ] Improve visual polish only after the app is documented and verified.
-- [ ] Consider deployment after all three revival milestones are complete.
-- [ ] Defer notifications, sharing, accounts, and backend sync.
+- [ ] Calendar (`.ics`) export for a countdown.
+- [ ] Optional accounts + backend for a synced, editable dashboard (the shared
+      links already work without it).
+- [ ] Richer share-preview (OG) images per countdown.
+- [ ] Reminder notifications.
+
+## Flagship upgrade — done 2026-06-20
+
+- [x] Shareable countdowns via URL-encoded payload + `/c/:code` public view.
+- [x] Six themes (inline-gradient, purge-safe); themed cards + shared view.
+- [x] Dashboard: create / edit / delete, soonest-first sort, empty + completed states.
+- [x] Routing (react-router-dom); nginx SPA fallback in the prod image.
+- [x] Installable, offline-capable PWA (manifest + service worker + icon).
+- [x] Pure share-codec + countdown-math modules with vitest unit tests (8 passing).
+- [x] Flagship README, MIT LICENSE, docs/CASE_STUDY.md, badges, screenshots.
+- [x] Verified: prod Docker build serves app; `/c/<code>` deep link returns 200;
+      sw.js + manifest served; browser screenshots of dashboard + shared view.
 
 ## Blocked
 
