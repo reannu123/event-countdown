@@ -2,7 +2,7 @@ app: event-countdown
 public_url: https://countdown.reannu.dev
 health_path: /
 image: ghcr.io/reannu123/event-countdown
-image_tag: cdcf10cc2375
+image_tag: master
 host: pm-docker
 host_ip: 192.168.0.125
 host_port: 4173

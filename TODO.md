@@ -90,12 +90,11 @@ React project.)
 - [x] Verified the production-like container builds and serves the app at
       `http://localhost:4173` on 2026-06-20.
 - [x] Deployed to `pm-docker` on 2026-06-28 using
-      `ghcr.io/reannu123/event-countdown:cdcf10cc2375` loaded onto the host,
-      `compose.deploy.yaml`, and NPM proxy host `id=27` for
+      `ghcr.io/reannu123/event-countdown:d08e634`, `compose.deploy.yaml`, and
+      NPM proxy host `id=27` for
       `countdown.reannu.dev -> 192.168.0.125:4173`. Verified public `/` and
       `/c/test` returned 200.
-- [ ] Follow-up: enable GHCR package publishing for Event Countdown. The local
-      build succeeded, but GHCR push failed because the current token lacked
-      `write:packages`; this deployment used a manually loaded image as a
-      rehearsal path.
+- [x] GHCR package publishing enabled on 2026-06-28 via GitHub Actions
+      `packages: write`; run `28321423482` published the `master` and
+      `d08e634` image tags.
 - [x] Merged GitHub PR #1 to `master` on 2026-06-20.
