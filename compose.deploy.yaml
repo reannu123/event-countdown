@@ -1,0 +1,6 @@
+services:
+  app:
+    image: ghcr.io/reannu123/event-countdown:${IMAGE_TAG:-master}
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-4173}:8080"

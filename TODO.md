@@ -1,6 +1,6 @@
 # Event Countdown TODO
 
-Last updated: 2026-06-20
+Last updated: 2026-06-28
 
 ## Project
 
@@ -41,10 +41,10 @@ React project.)
 
 ## Next
 
-- [ ] **Activate CI** — `.github/workflows/ci.yml` exists locally but the push
-      was rejected (token lacks `workflow` scope). Run:
-      `gh auth refresh -s workflow && git add .github && git commit -m "Add CI" && git push`.
-- [ ] Live deploy (any static host / Pages / Netlify) for a clickable demo URL.
+- [x] **CI activated** — `.github/workflows/ci.yml` pushed in `cdcf10c` on
+      2026-06-24; first GitHub Actions CI run passed.
+- [x] **Live deploy** — `https://countdown.reannu.dev` is running on
+      `pm-docker` behind Raspberry Pi Nginx Proxy Manager.
 
 ## Later
 
@@ -89,4 +89,13 @@ React project.)
       create, persist across refresh, and delete work as documented.
 - [x] Verified the production-like container builds and serves the app at
       `http://localhost:4173` on 2026-06-20.
+- [x] Deployed to `pm-docker` on 2026-06-28 using
+      `ghcr.io/reannu123/event-countdown:cdcf10cc2375` loaded onto the host,
+      `compose.deploy.yaml`, and NPM proxy host `id=27` for
+      `countdown.reannu.dev -> 192.168.0.125:4173`. Verified public `/` and
+      `/c/test` returned 200.
+- [ ] Follow-up: enable GHCR package publishing for Event Countdown. The local
+      build succeeded, but GHCR push failed because the current token lacked
+      `write:packages`; this deployment used a manually loaded image as a
+      rehearsal path.
 - [x] Merged GitHub PR #1 to `master` on 2026-06-20.

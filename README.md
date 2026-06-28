@@ -11,6 +11,8 @@ Create beautiful countdowns to the moments that matter — and **share a live li
 with anyone, no account or backend required.** An installable, offline-capable
 PWA built with React 19, Vite, and Tailwind 4.
 
+Live demo: <https://countdown.reannu.dev>
+
 ## Highlights
 
 - **Shareable countdowns, zero backend.** Every countdown encodes into its own
@@ -62,6 +64,9 @@ docker compose up --build                       # http://localhost:5173
 
 # Production-like (multi-stage build, nginx, SPA routing)
 docker compose -f compose.prod.yaml up --build  # http://localhost:4173
+
+# Deployment Compose (registry image, used on pm-docker)
+docker compose -f compose.deploy.yaml up -d
 ```
 
 Set `APP_PORT` in a local `.env` only if a host port is taken. No secrets needed.
